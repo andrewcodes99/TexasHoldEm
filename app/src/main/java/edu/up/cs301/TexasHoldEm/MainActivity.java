@@ -15,10 +15,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        /**
+        GameView PV1 = findViewById(R.id.surfaceView1);
+        GameView PV2 = findViewById(R.id.surfaceView2);
+        GameView PV3 = findViewById(R.id.surfaceView3);
+        GameView PV4 = findViewById(R.id.surfaceView4);
+        GameView PV5 = findViewById(R.id.surfaceView5);
+        GameView PV6 = findViewById(R.id.surfaceView6);
+        GameView RV = findViewById(R.id.mainSV);
+         */
     }
 }

@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="14">
+    android:weightSum="14"
+    android:background="#35654D">
 
     <LinearLayout
         android:id="@+id/topLL"
@@ -12,35 +13,39 @@
         android:layout_height="0dp"
         android:orientation="horizontal"
         android:layout_weight="2"
-        android:weightSum="12">
+        android:weightSum="24">
 
         <LinearLayout
             android:id="@+id/infoLL"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="10"
-            android:orientation="vertical">
+            android:layout_weight="20"
+            android:orientation="vertical"
+            android:layout_marginLeft="90dp">
             <TextView
                 android:id="@+id/infoTV"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="You cannot raise now. Wait for your turn." />
+                android:gravity="center_vertical"
+                android:text="You cannot raise now. Please wait for your turn."
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/settingsBLL"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_marginRight="60dp">
             <Button
                 android:id="@+id/settingsB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="settings" />
+                android:text="settings"
+                android:backgroundTint="@color/black"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -65,7 +70,7 @@
                 android:orientation="horizontal">
 
                 <SurfaceView
-                    android:id="@+id/surfaceView"
+                    android:id="@+id/surfaceView1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
@@ -124,55 +129,72 @@
         android:layout_height="0dp"
         android:layout_weight="2"
         android:orientation="horizontal"
-        android:weightSum="12">
+        android:weightSum="24">
         <LinearLayout
             android:id="@+id/bottomLL1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:orientation="vertical">
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="45dp">
 
             <Button
                 android:id="@+id/foldB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="fold" />
+                android:text="Fold"
+                android:backgroundTint="@color/black"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/bottomLL2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:orientation="vertical">
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:layout_marginRight="45dp">
             <Button
                 android:id="@+id/callCheckB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Call/Check" />
+                android:text="Call/Check"
+                android:backgroundTint="@color/black"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/bottomLL3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:orientation="vertical">
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:layout_marginRight="60dp">
             <Button
                 android:id="@+id/raiseB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Raise" />
+                android:text="Raise"
+                android:backgroundTint="@color/black"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/bottomLL4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="6"
+            android:layout_weight="13"
             android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Amount to raise"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                />
             <SeekBar
                 android:id="@+id/amtSB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Amount to raise" />
+
+                android:color="@color/black"/>
         </LinearLayout>
     </LinearLayout>
 

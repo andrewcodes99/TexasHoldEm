@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:weightSum="14"
     android:background="#35654D">
-
     <LinearLayout
         android:id="@+id/topLL"
         android:layout_width='match_parent'
@@ -14,7 +13,6 @@
         android:orientation="horizontal"
         android:layout_weight="2"
         android:weightSum="24">
-
         <LinearLayout
             android:id="@+id/infoLL"
             android:layout_width="0dp"
@@ -30,7 +28,6 @@
                 android:text="You cannot raise now. Please wait for your turn."
                 android:textColor="@color/black" />
         </LinearLayout>
-
         <LinearLayout
             android:id="@+id/settingsBLL"
             android:layout_width="0dp"
@@ -48,8 +45,6 @@
                 android:backgroundTint="@color/black"/>
         </LinearLayout>
     </LinearLayout>
-
-
     <LinearLayout
         android:id="@+id/middleLL"
         android:layout_width="match_parent"
@@ -57,72 +52,12 @@
         android:layout_weight="10"
         android:weightSum="10"
         android:orientation="horizontal">
-
-        <LinearLayout
+        <edu.up.cs301.TexasHoldEm.GameView
+            android:id="@+id/mainSV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <SurfaceView
-                    android:id="@+id/surfaceView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <SurfaceView
-                    android:id="@+id/surfaceView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <SurfaceView
-                    android:id="@+id/surfaceView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <SurfaceView
-                android:id="@+id/mainSV"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <SurfaceView
-                    android:id="@+id/surfaceView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <SurfaceView
-                    android:id="@+id/surfaceView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <SurfaceView
-                    android:id="@+id/surfaceView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-            </LinearLayout>
-        </LinearLayout>
-
+            android:layout_weight="1" />
     </LinearLayout>
-
     <LinearLayout
         android:id="@+id/bottomLL"
         android:layout_width="match_parent"
@@ -138,7 +73,6 @@
             android:orientation="vertical"
             android:layout_marginLeft="100dp"
             android:layout_marginRight="45dp">
-
             <Button
                 android:id="@+id/foldB"
                 android:layout_width="match_parent"
@@ -187,20 +121,12 @@
                 android:gravity="center"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                android:textSize="18dp"
-                />
+                android:textSize="18dp" />
             <SeekBar
                 android:id="@+id/amtSB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:color="@color/black"/>
         </LinearLayout>
     </LinearLayout>
-
-
-
-
-
-
 </LinearLayout>

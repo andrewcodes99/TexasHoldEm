@@ -27,5 +27,4 @@ public class Player extends CardHolder{
     public boolean isDealer(){  return isDealer;  }
     public boolean playerExists(){  return exists;  }
     public boolean playerFolded(){  return folded;  }
-
 }

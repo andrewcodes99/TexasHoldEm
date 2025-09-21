@@ -1,10 +1,17 @@
 package edu.up.cs301.TexasHoldEm;
 
+import static android.graphics.Bitmap.createBitmap;
+
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.SurfaceView;
+import android.widget.ImageView;
 
 public class GameView extends SurfaceView{
     private Game game;
@@ -61,6 +68,9 @@ public class GameView extends SurfaceView{
                     (p6area[0]+p6area[2])/2+cardWidth+cardSpacing,
                     p6area[3]-50};
 
+    /// testing area
+    RectF p1CardRect = new RectF(p1card[0], p1card[1],p1card[2],p1card[3]);
+
 
     public GameView(Context context, AttributeSet attr) {
         super(context, attr);
@@ -94,6 +104,8 @@ public class GameView extends SurfaceView{
             canvas.drawRect(p1card[0], p1card[1], p1card[2], p1card[3], white);
             canvas.drawRect(p1card[0]-cardWidth-cardSpacing, p1card[1],
                     p1card[2]-cardWidth-10, p1card[3], white);
+            canvas.drawBitmap(createCardImage(),null, p1CardRect, null);
+
         }
         if (game.getPlayers().get(1).playerExists()){
             canvas.drawRect(p2card[0], p2card[1], p2card[2], p2card[3], white);
@@ -130,6 +142,13 @@ public class GameView extends SurfaceView{
 
     public void drawChips(Canvas canvas){
 
+    }
+
+
+    public Bitmap createCardImage(){
+        Drawable image = getResources().getDrawable(R.drawable.card1);
+        BitmapDrawable bitdrawn = (BitmapDrawable) image;
+        return bitdrawn.getBitmap();
     }
 
 

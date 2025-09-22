@@ -3,7 +3,7 @@ package edu.up.cs301.TexasHoldEm;
 import java.util.ArrayList;
 
 public class Game {
-    public final int MAX_PLAYERS = 6;
+    public final int MAX_PLAYERS = 5;
     private Deck deck;
     private int playerCount;
     private ArrayList<Player> players;
@@ -15,37 +15,32 @@ public class Game {
         deck = new Deck();
         river = new River();
         players = new ArrayList<>();
-        for(int p = 0; p < MAX_PLAYERS; p++) {
-            players.add(new Player());
+        for(int p = 1; p <= MAX_PLAYERS; p++) {
+            players.add(new Player(p));
         }
 
         //toggle which players are playing
-        if(playerCount == 6){
-            for(int p = 0; p < playerCount; p++) {
-                players.get(p).setExists(true);
-            }
-        }
         if(playerCount == 5){
             for(int p = 0; p < playerCount; p++) {
-                players.get(p).setExists(true); //nobody in spot 6
+                players.get(p).setExists(true);
             }
         }
         if(playerCount == 4){
-            for(int p = 0; p < 3; p++) {
-                //nobody in spots 4 or 6 (user is 5)
-                players.get(p).setExists(true);
+            for(int p = 0; p < playerCount; p++) {
+                players.get(p).setExists(true); //nobody in spot 5
             }
-            players.get(5).setExists(true);
         }
         if(playerCount == 3){
-            players.get(1).setExists(true);
+            players.get(0).setExists(true);
+            players.get(2).setExists(true);
             players.get(3).setExists(true);
-            players.get(5).setExists(true);
         }
         if(playerCount == 2){
-            players.get(2).setExists(true);
-            players.get(5).setExists(true);
+            players.get(1).setExists(true);
+            players.get(3).setExists(true);
         }
+
+        deck.dealCards(players.get(0));
     }
 
     public int getPlayerCount(){  return playerCount;  }

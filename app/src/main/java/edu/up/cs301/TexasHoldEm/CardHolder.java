@@ -18,8 +18,10 @@ public class CardHolder {
     public int getChipInventory() {  return chipInventory;  }
 
     //setters
-    public void setHand(ArrayList<Card> hand) {
-        if(hand.size() <= MAX_HAND_LENGTH){  this.hand = hand;  }
+    public void setHand(Card c) {
+        if(hand.size() <= MAX_HAND_LENGTH){
+            hand.add(c);
+        }
     }
     //don't really need this. but if we want to slow down
     //dealing, it is visually necessary

@@ -9,12 +9,14 @@ public class Player extends CardHolder{
     private boolean isDealer;
     private boolean exists;
     private boolean folded;
+    private int playerID;
 
-    public Player(){
+    public Player(int playerID){
         super(1000, 2);
         this.isDealer = false;
         this.exists = false;
         this.folded = false;
+        this.playerID = playerID;
     }
 
     //setters
@@ -27,5 +29,6 @@ public class Player extends CardHolder{
     public boolean isDealer(){  return isDealer;  }
     public boolean playerExists(){  return exists;  }
     public boolean playerFolded(){  return folded;  }
+    public int getPlayerID(){  return playerID;  }
 
 }

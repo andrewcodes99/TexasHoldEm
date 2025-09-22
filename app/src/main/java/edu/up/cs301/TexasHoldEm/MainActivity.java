@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         //this will need to depend on user selections
         //should also eventually include which bots
-        Game game = new Game(6);
+        Game game = new Game(5);
 
         GameView sv = findViewById(R.id.mainSV);
         sv.passInGame(game);

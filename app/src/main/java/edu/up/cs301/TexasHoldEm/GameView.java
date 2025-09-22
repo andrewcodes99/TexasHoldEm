@@ -2,7 +2,6 @@ package edu.up.cs301.TexasHoldEm;
 
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -94,6 +93,8 @@ public class GameView extends SurfaceView{
     public static final int[] riverCard =
             {(riverArea[0]+riverArea[2])/4, riverArea[1]+100,
             (riverArea[0]+riverArea[2])/4+cardWidth+cardSpacing, riverArea[1]+100+cardHeight};
+    public static final RectF pile = new RectF (riverCard[0] + (cardWidth * 6)+cardSpacing, riverCard[1],
+            riverCard[2] + (cardWidth * 6) - cardSpacing, riverCard[3]);
 
 
     //constructor for the View
@@ -125,43 +126,77 @@ public class GameView extends SurfaceView{
     //should see if the card is flipped or not
     public void drawCards(Canvas canvas){
         if (game.getPlayers().get(0).playerExists()){
-            canvas.drawBitmap(createCardImage(),null, p1Card1, null);
-            canvas.drawBitmap(createCardImage(),null, p1Card2, null);
+            //game.getPlayer(1).getHand(0);
+            canvas.drawBitmap(createCardImage(0),null, p1Card1, null);
+            //game.getPlayer(1).getHand(1);
+            canvas.drawBitmap(createCardImage(0),null, p1Card2, null);
         }
         if (game.getPlayers().get(1).playerExists()){
-            canvas.drawBitmap(createCardImage(),null, p2Card1, null);
-            canvas.drawBitmap(createCardImage(),null, p2Card2, null);
+            //game.getPlayer(2).getHand(0);
+            canvas.drawBitmap(createCardImage(0),null, p2Card1, null);
+            //game.getPlayer(2).getHand(1);
+            canvas.drawBitmap(createCardImage(0),null, p2Card2, null);
         }
         if (game.getPlayers().get(2).playerExists()){
-            canvas.drawBitmap(createCardImage(),null, p3Card1, null);
-            canvas.drawBitmap(createCardImage(),null, p3Card2, null);
+            //game.getPlayer(3).getHand(0);
+            canvas.drawBitmap(createCardImage(0),null, p3Card1, null);
+            //game.getPlayer(3).getHand(1);
+            canvas.drawBitmap(createCardImage(0),null, p3Card2, null);
         }
         if (game.getPlayers().get(3).playerExists()){
-            canvas.drawBitmap(createCardImage(),null, p4Card1, null);
-            canvas.drawBitmap(createCardImage(),null, p4Card2, null);
+            //game.getPlayer(4).getHand(0);
+            canvas.drawBitmap(createCardImage(0),null, p4Card1, null);
+            //game.getPlayer(4).getHand(1);
+            canvas.drawBitmap(createCardImage(0),null, p4Card2, null);
         }
         if (game.getPlayers().get(4).playerExists()){
-            canvas.drawBitmap(createCardImage(),null, p5Card1, null);
-            canvas.drawBitmap(createCardImage(),null, p5Card2, null);
+            //game.getPlayer(5).getHand(0);
+            canvas.drawBitmap(createCardImage(6),null, p5Card1, null);
+            //game.getPlayer(5).getHand(1);
+            canvas.drawBitmap(createCardImage(7),null, p5Card2, null);
         }
         if (game.getPlayers().get(5).playerExists()){
-            canvas.drawBitmap(createCardImage(),null, p6Card1, null);
-            canvas.drawBitmap(createCardImage(),null, p6Card2, null);
+            //game.getPlayer(6).getHand(0);
+            canvas.drawBitmap(createCardImage(0),null, p6Card1, null);
+            //game.getPlayer(6).getHand(1);
+            canvas.drawBitmap(createCardImage(0),null, p6Card2, null);
         }
         for (int i = 0; i<=4; i++) {
-            canvas.drawRect(riverCard[0] + (cardWidth * i)+cardSpacing, riverCard[1],
-                    riverCard[2] + (cardWidth * i) - cardSpacing, riverCard[3], white);
+            RectF river = new RectF(riverCard[0] + (cardWidth * i)+cardSpacing, riverCard[1],
+                    riverCard[2] + (cardWidth * i) - cardSpacing, riverCard[3]);
+            canvas.drawBitmap(createCardImage(i + 1),null, river, null);
+
         }
-        canvas.drawRect(riverCard[0] + (cardWidth * 6)+cardSpacing, riverCard[1],
-                riverCard[2] + (cardWidth * 6) - cardSpacing, riverCard[3], white);
+        canvas.drawBitmap(createCardImage(0),null, pile, null);
     }
 
     public void drawChips(Canvas canvas){
 
     }
 
-    public Bitmap createCardImage(){
-        Drawable CardsSrc = getResources().getDrawable(R.drawable.card1);
+    public Bitmap createCardImage(int i){
+        Drawable CardsSrc = getResources().getDrawable(R.drawable.c0);
+        if(i == 1){
+            CardsSrc = getResources().getDrawable(R.drawable.c13);
+        }
+        if(i == 2){
+            CardsSrc = getResources().getDrawable(R.drawable.c1);
+        }
+        if(i == 3){
+            CardsSrc = getResources().getDrawable(R.drawable.c2);
+        }
+        if(i == 4){
+            CardsSrc = getResources().getDrawable(R.drawable.c3);
+        }
+        if(i == 5){
+            CardsSrc = getResources().getDrawable(R.drawable.c4);
+        }
+        if(i == 6){
+            CardsSrc = getResources().getDrawable(R.drawable.c51);
+        }
+        if(i == 7){
+            CardsSrc = getResources().getDrawable(R.drawable.c52);
+        }
         BitmapDrawable image = (BitmapDrawable) CardsSrc;
         return image.getBitmap();
     }
@@ -194,6 +229,17 @@ canvas.drawRect(riverArea[0], riverArea[1], riverArea[2], riverArea[3], blueChip
 canvas.drawRect(p4area[0], p4area[1], p4area[2], p4area[3], red);
 canvas.drawRect(p5area[0], p5area[1], p5area[2], p5area[3], greenChips);
 canvas.drawRect(p6area[0], p6area[1], p6area[2], p6area[3], blackChips);
+
+
+
+
+
+canvas.drawRect(riverCard[0] + (cardWidth * i)+cardSpacing, riverCard[1],
+                    riverCard[2] + (cardWidth * i) - cardSpacing, riverCard[3], white)
+
+
+
+
+
+
 */
-
-

@@ -50,5 +50,6 @@ public class Game {
 
     public int getPlayerCount(){  return playerCount;  }
     public ArrayList<Player> getPlayers(){  return players;  }
+    public Player getPlayer (int i){  return players.get(i);  }
     public River getRiver(){  return river;  }
 }

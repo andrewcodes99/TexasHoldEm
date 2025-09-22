@@ -1,18 +1,20 @@
 package edu.up.cs301.TexasHoldEm;
 
+
+/**
+@Author: Andrew Asch
+ */
 public class Card {
+
+
+    //instance variables
     private SUIT suit;
     private VALUE value;
     private boolean dealt;
     private boolean flipped;
+    enum SUIT{HEART, DIAMOND, CLUB, SPADE}
+    enum VALUE{TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE}
 
-    enum SUIT{
-        HEART, DIAMOND, CLUB, SPADE
-    }
-
-    enum VALUE{
-        TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE
-    }
 
     //could've added an ownedBy property, but doing so
     //would mean having to loop through 52 cards on top of everything

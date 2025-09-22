@@ -5,6 +5,9 @@ import java.util.ArrayList;
 //going to need something to assign a bot or user to a playerID
 //still need to create functionality for both
 
+/**
+ * @Author: Andrew Asch
+ */
 public class Player extends CardHolder{
     private boolean isDealer;
     private boolean exists;

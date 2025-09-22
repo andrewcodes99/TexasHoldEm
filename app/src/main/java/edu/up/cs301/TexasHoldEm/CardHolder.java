@@ -15,6 +15,7 @@ public class CardHolder {
 
     //getters
     public ArrayList<Card> getHand() {  return hand;  }
+    public Card getHand(int i){  return hand.get(i);  }
     public int getChipInventory() {  return chipInventory;  }
 
     //setters
@@ -31,4 +32,6 @@ public class CardHolder {
     public void updateChipInventory(int chipInventory){
         this.chipInventory = chipInventory;
     }
+
+
 }

@@ -10,16 +10,28 @@ public class Game {
     private River river;
 
 
+    /**
+     * @author Andrew
+     *
+     * @desc creates and sets up a game with x number
+     * of players. Haven't decided which helper classes
+     * we want to make. A hand class that executes gameplay might be useful
+     * but we could also just write some methods within this one.
+     *
+     * @param playerCount
+     */
     public Game(int playerCount){
         this.playerCount = playerCount;
-        deck = new Deck();
-        river = new River();
+        deck = new Deck(); //create deck obj (arraylist of cards)
+        river = new River(); //create river obj (kind of a player)
         players = new ArrayList<>();
-        for(int p = 1; p <= MAX_PLAYERS; p++) {
+        for(int p = 1; p <= MAX_PLAYERS; p++) { //add players
             players.add(new Player(p));
         }
 
         //toggle which players are playing
+        //since the loop above creates the max number
+        //of players
         if(playerCount == 5){
             for(int p = 0; p < playerCount; p++) {
                 players.get(p).setExists(true);
@@ -40,10 +52,15 @@ public class Game {
             players.get(3).setExists(true);
         }
 
+        //just wanted to make sure my code would work
+        //up to this point
         deck.dealCards(players.get(0));
     }
 
+    //getters
     public int getPlayerCount(){  return playerCount;  }
+
+    //needed to get player hands during gameplay
     public ArrayList<Player> getPlayers(){  return players;  }
     public River getRiver(){  return river;  }
 }

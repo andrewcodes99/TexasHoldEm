@@ -25,6 +25,10 @@ import java.util.HashMap;
  */
 public class GameView extends SurfaceView{
     private Game game;
+    //TODO: Bitmap creation in const vs on demand (decode and recycle?)
+    //dont call decode
+    //https://stackoverflow.com/questions/19628193/how-to-draw-bitmap-fast-in-ondraw-method-in-canvas-android
+
     //https://www.geeksforgeeks.org/java/hashmap-get-method-in-java/
     //https://stackoverflow.com/questions/3626752/key-existence-check-in-hashmap
     //TODO: should store what we create so that we dont recreate every time we draw
@@ -37,8 +41,6 @@ public class GameView extends SurfaceView{
     Paint greenChips = new Paint();
     Paint blackChips = new Paint();
 
-    //trial and error found the dimensions of the screen.
-    //top left x, top left y, bottom right x, bottom right y
     public static final int cardWidth = 150;
     public static final int cardHeight = 210;
     public static final int cardSpacing = 10;
@@ -47,7 +49,8 @@ public class GameView extends SurfaceView{
     public static final int chipWidth = 266;
     public static final int chipHeight = 200;
 
-
+    //trial and error found the dimensions of the screen.
+    //top left x, top left y, bottom right x, bottom right y
     public static final int[] p1area = {0, 0, 768, 300};
     //subtract 10 from card to draw second
     public static final int[] p1card =
@@ -56,6 +59,7 @@ public class GameView extends SurfaceView{
                     p1area[1]+cardHeight};
 
     //Will use the RectF objects to create bitmap
+    //https://stackoverflow.com/questions/13361231/android-draw-bitmap-within-canvas
     //TODO: need to clean these vars up
     public static final RectF p1Card1 = new RectF(p1card[0], p1card[1],p1card[2],p1card[3]);
     public static final RectF p1Card2 = new RectF(p1card[0]-cardWidth-cardSpacing, p1card[1],
@@ -157,7 +161,7 @@ public class GameView extends SurfaceView{
     public void passInGame(Game game){
         this.game = game;
     }
-    //TODO:
+    //TODO: Maybe a hashmap with playerkeys
     //if we can figure out a way to specify location without hardcoding
     //x and y, this method will be a lot cleaner.
     //If player exists. Loop thru hand. If flipped, get card name. Draw
@@ -223,6 +227,7 @@ public class GameView extends SurfaceView{
     }
 
     //TODO: Figure out a better way to create images
+    //TODO: should prolly also find a method not deprecated (decodeResource maybe)
     public Bitmap createCardImage(int i){ //where i will eventually be .getCardName (KING of HEARTS)
         Drawable CardsSrc = getResources().getDrawable(R.drawable.c0);
         if(i == 1){
